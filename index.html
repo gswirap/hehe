@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gardu Boy The Movie — Segera Tayang di Bioskop!</title>
+
+  <meta name="description" content="Gardu Boy The Movie — superhero baru dengan kekuatan listrik yang siap menghibur penonton Indonesia. Segera hadir di bioskop kesayangan Anda.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f6f8;
+      color: #222;
+      line-height: 1.8;
+    }
+
+    .article-wrapper {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .article-card {
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    /* HERO CONTAINER */
+    .hero {
+      background: linear-gradient(135deg, #111827, #1f2937 55%, #f59e0b);
+      color: white;
+      padding: 55px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero::before {
+      content: "⚡";
+      position: absolute;
+      right: 30px;
+      top: 10px;
+      font-size: 180px;
+      opacity: 0.08;
+      transform: rotate(10deg);
+      pointer-events: none;
+    }
+
+    .category {
+      align-self: flex-start;
+      background: #fbbf24;
+      color: #111827;
+      font-weight: bold;
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.1;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: #fbbf24;
+    }
+
+    .tagline {
+      font-size: 20px;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    /* MEDIA GAMBAR RESPONSIF */
+    .hero-image-wrapper {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* ARTICLE CONTENT */
+    .article-content {
+      padding: 50px 55px 60px;
+    }
+
+    .intro {
+      font-size: 19px;
+      color: #444;
+      margin-bottom: 35px;
+    }
+
+    .article-content h2 {
+      font-size: 28px;
+      color: #111827;
+      margin-top: 45px;
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+
+    .article-content p {
+      font-size: 17px;
+      margin-bottom: 20px;
+      color: #3f3f46;
+    }
+
+    .article-content em {
+      font-weight: 600;
+    }
+
+    .movie-title {
+      font-weight: 800;
+      color: #111827;
+    }
+
+    /* QUOTE */
+    blockquote {
+      margin: 30px 0;
+      padding: 25px 30px;
+      background: #fffbeb;
+      border-left: 6px solid #f59e0b;
+      border-radius: 8px;
+      font-size: 21px;
+      font-weight: bold;
+      font-style: italic;
+      color: #78350f;
+    }
+
+    /* HIGHLIGHT */
+    .highlight {
+      margin: 35px 0;
+      padding: 25px 30px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #fff7ed, #fef3c7);
+      border: 1px solid #fde68a;
+    }
+
+    .highlight h3 {
+      margin-bottom: 12px;
+      font-size: 20px;
+      color: #92400e;
+    }
+
+    .highlight p {
+      margin-bottom: 8px;
+    }
+
+    /* POWER LIST */
+    .power-list {
+      display: grid;
+      gap: 12px;
+      margin: 25px 0 35px;
+    }
+
+    .power-item {
+      padding: 15px 18px;
+      background: #f8fafc;
+      border-radius: 10px;
+      border-left: 4px solid #f59e0b;
+      font-weight: 600;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      margin-top: 50px;
+      padding: 40px 30px;
+      text-align: center;
+      border-radius: 16px;
+      background: #111827;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::after {
+      content: "⚡";
+      position: absolute;
+      font-size: 130px;
+      right: -10px;
+      bottom: -40px;
+      opacity: 0.06;
+    }
+
+    .final-cta h2 {
+      color: #fbbf24;
+      margin-top: 0;
+      font-size: 32px;
+    }
+
+    .final-cta p {
+      color: #e5e7eb;
+    }
+
+    .final-tagline {
+      font-size: 21px;
+      font-weight: bold;
+      font-style: italic;
+      color: #fbbf24 !important;
+      margin-top: 25px;
+    }
+
+    /* RESPONSIVE (HP / TABLET) */
+    @media (max-width: 700px) {
+      .article-wrapper {
+        margin: 20px auto;
+        padding: 0 12px;
+      }
+
+      .hero {
+        padding: 35px 20px;
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .tagline {
+        font-size: 16px;
+      }
+
+      .hero-image-wrapper img {
+        height: 230px; /* Tinggi disesuaikan untuk layar HP */
+      }
+
+      .article-content {
+        padding: 30px 20px 40px;
+      }
+
+      .article-content h2 {
+        font-size: 22px;
+      }
+
+      .article-content p {
+        font-size: 16px;
+      }
+
+      blockquote {
+        font-size: 18px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="article-wrapper">
+
+    <article class="article-card">
+
+      <!-- HERO -->
+      <header class="hero">
+
+        <div class="category">
+          ⚡ SEGERA TAYANG DI BIOSKOP!
+        </div>
+
+        <h1>
+          GARDU BOY<br>
+          <span>THE MOVIE</span>
+        </h1>
+
+        <div class="tagline">
+          “Dari Gardu, Untuk Negeri.”
+        </div>
+
+        <!-- GAMBAR HEADER UTAMA -->
+        <div class="hero-image-wrapper">
+          <img src="ade pardede2.jpeg" alt="Gardu Boy The Movie Header">
+        </div>
+
+      </header>
+
+
+      <!-- ARTICLE CONTENT -->
+      <section class="article-content">
+
+        <p class="intro">
+          Setelah sukses menghadirkan berbagai superhero dengan kekuatan super
+          yang tidak masuk akal, dunia perfilman Indonesia akhirnya
+          mempersembahkan sosok pahlawan baru yang kekuatannya jauh lebih dekat
+          dengan kehidupan sehari-hari.
+        </p>
+
+        <p>
+          <span class="movie-title">GARDU BOY THE MOVIE.</span>
+        </p>
+
+        <p>
+          Film superhero terbaru ini dibintangi oleh
+          <em>Ade Pardede</em> sebagai seorang pria sederhana yang memiliki
+          kebiasaan… agak tidak biasa.
+        </p>
+
+        <p>
+          Suka nongkrong di bawah gardu listrik.
+        </p>
+
+        <p>
+          Bukan karena menunggu teman.<br>
+          Bukan karena sedang mencari Wi-Fi.<br>
+          Bukan juga karena berteduh dari hujan.
+        </p>
+
+        <p>
+          Tapi memang… <em>hobi.</em>
+        </p>
+
+
+        <!-- ORIGIN -->
+        <h2>⚡ AWAL MULA KEKUATAN</h2>
+
+        <p>
+          Suatu malam, seperti biasa, Ade sedang santai di bawah gardu listrik
+          sambil menikmati suasana malam.
+        </p>
+
+        <p>
+          Namun, tiba-tiba terjadi sebuah kejadian yang mengubah hidupnya
+          untuk selamanya.
+        </p>
+
+        <div class="highlight">
+          <h3>JLEB!!! ⚡⚡⚡</h3>
+          <p>
+            Sebuah sambaran listrik misterius mengenai tubuh Ade.
+          </p>
+        </div>
+
+        <p>
+          Alih-alih langsung kapok dan menjauh dari gardu, kejadian tersebut
+          justru membuat sesuatu yang aneh terjadi.
+        </p>
+
+        <div class="power-list">
+
+          <div class="power-item">
+            ⚡ Rambutnya berdiri.
+          </div>
+
+          <div class="power-item">
+            👁️ Matanya bersinar.
+          </div>
+
+          <div class="power-item">
+            ⚡ Tangannya mengeluarkan percikan listrik.
+          </div>
+
+          <div class="power-item">
+            🔋 HP-nya langsung full battery.
+          </div>
+
+        </div>
+
+        <p>
+          Sejak saat itu, Ade menyadari bahwa dirinya telah mendapatkan
+          kekuatan super.
+        </p>
+
+        <p>
+          Ia bisa menghasilkan listrik dari tubuhnya, menyalakan lampu hanya
+          dengan menyentuhnya, mengisi baterai HP tanpa charger, bahkan membuat
+          token listrik tetangga… tiba-tiba berkurang.
+        </p>
+
+        <p>
+          Dengan kekuatan barunya tersebut, Ade akhirnya memutuskan untuk
+          menggunakan kemampuannya demi membantu masyarakat.
+        </p>
+
+        <p>
+          Namun, menjadi superhero ternyata tidak semudah kelihatannya.
+        </p>
+
+        blockquote>
+          “Mas, bisa numpang ngecas nggak?”
+        </blockquote>
+
+
+        <!-- SUPERHERO -->
+        <h2>🔥 SUPERHERO PALING HEMAT ENERGI</h2>
+
+        <p>
+          Berbeda dengan superhero lainnya yang memiliki markas rahasia mewah,
+          Gardu Boy memilih tempat persembunyian yang sederhana.
+        </p>
+
+        <p>
+          <strong>Gardu listrik.</strong>
+        </p>
+
+        <p>
+          Kostumnya pun tidak terlalu rumit.
+        </p>
+
+        <p>
+          Jaket, celana panjang, sandal, dan satu colokan listrik yang selalu
+          dibawa ke mana-mana.
+        </p>
+
+        <div class="highlight">
+
+          <h3>⚡ INFORMASI KEKUATAN GARDU BOY</h3>
+
+          <p>
+            <strong>Senjata andalan:</strong> Kabel roll.
+          </p>
+
+          <p>
+            <strong>Kekuatan utama:</strong> Listrik 220 volt.
+          </p>
+
+          <p>
+            <strong>Kelemahan:</strong> Tagihan listrik.
+          </p>
+
+        </div>
+
+
+        <!-- VILLAIN -->
+        <h2>⚡ MUNCULNYA MUSUH TERBESAR</h2>
+
+        <p>
+          Namun kedamaian kota tidak berlangsung lama.
+        </p>
+
+        <p>
+          Muncul seorang villain misterius yang dikenal dengan nama
+          <em>“Mati Lampu”</em>.
+        </p>
+
+        <p>
+          Ia memiliki kemampuan luar biasa untuk memadamkan listrik di seluruh
+          kota hanya dengan satu gerakan tangan.
+        </p>
+
+        <p>
+          Pertarungan pun tidak terhindarkan.
+        </p>
+
+        blockquote>
+          “PLN STRIKE!!!”
+        </blockquote>
+
+        <p>
+          Namun sebelum pertarungan dimulai, Ade mendapatkan satu pesan
+          penting dari ibunya:
+        </p>
+
+        blockquote>
+          “Jangan lupa beli token.”
+        </blockquote>
+
+        <p>
+          Seketika mentalnya runtuh.
+        </p>
+
+
+        <!-- QUESTIONS -->
+        <h2>⚡ APAKAH GARDU BOY AKAN MENANG?</h2>
+
+        <p>
+          Apakah Gardu Boy mampu menyelamatkan kota?
+        </p>
+
+        <p>
+          Apakah ia mampu mengalahkan Mati Lampu?
+        </p>
+
+        <p>
+          Dan yang paling penting…
+        </p>
+
+        <p>
+          <strong>
+            Apakah listrik rumah Ade masih menyala sampai akhir film?
+          </strong>
+        </p>
+
+
+        <!-- FINAL -->
+        <div class="final-cta">
+
+          <h2>⚡ GARDU BOY THE MOVIE ⚡</h2>
+
+          <p>
+            Semua jawabannya akan terungkap dalam film superhero paling
+            berenergi tahun ini.
+          </p>
+
+          <p>
+            <strong>Segera hadir di bioskop kesayangan Anda.</strong>
+          </p>
+
+          <p>
+            Film ini mengandung adegan percikan listrik, drama token,
+            dan kemungkinan penonton pulang sambil mencari gardu terdekat.
+          </p>
+
+          <p class="final-tagline">
+            GARDU BOY — Ketika hidup memberimu listrik,
+            jadilah superhero.
+          </p>
+
+        </div>
+
+      </section>
+
+    </article>
+
+  </main>
+
+</body>
+</html>
